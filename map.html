@@ -16,17 +16,20 @@
 <div id="map"></div>
 
 <script>
+  // إنشاء الخريطة بالعربي
   const map = new maplibregl.Map({
     container: 'map',
     style: 'https://api.maptiler.com/maps/streets-ar/style.json?key=KRFAfkrkw1cIef9yC9dR',
-    center: [36.2765, 33.5138],
+    center: [36.2765, 33.5138], // دمشق
     zoom: 12
   });
 
+  // إضافة Marker أحمر
   const userMarker = new maplibregl.Marker({ color: 'red' })
     .setLngLat([36.2765, 33.5138])
     .addTo(map);
 
+  // تحديث موقع المستخدم
   function updateUserLocation(lat, lng) {
     userMarker.setLngLat([lng, lat]);
     map.flyTo({ center: [lng, lat], zoom: 14 });
